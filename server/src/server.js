@@ -1,6 +1,6 @@
 const express = require("express");
 const mwLogger = require("./middleware/logger");
-const mwErrorhandler = require("./middleware/errorhander");
+const mwErrorhandler = require("./middleware/errorHandler");
 
 require("dotenv").config();
 const app = express();
