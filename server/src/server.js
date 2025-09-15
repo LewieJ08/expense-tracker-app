@@ -1,4 +1,5 @@
 const express = require("express");
+const connectDB = require("./config/db")
 const mwLogger = require("./middleware/logger");
 const mwErrorhandler = require("./middleware/errorHandler");
 const userRoutes = require("./routes/userRoutes");
@@ -12,6 +13,8 @@ app.use("/users", userRoutes);
 
 app.use(mwErrorhandler);
 
-app.listen(port, () => {
-    console.log(`Server running on port: ${port}`);
-});
+connectDB().then(
+    app.listen(port, () => {
+        console.log(`Server running on port: ${port}`);
+    })
+);
