@@ -13,4 +13,18 @@ const getUsers = async (req, res, next) => {
     }
 }
 
-module.exports = {getUsers};
+const registerUser = async (req, res, next) => {
+    try {
+        const user = new User(req.body);
+        user.save();
+        res.status(201).json({
+            success: true,
+            message: `User: ${req.body.username} registered successfully`,
+            data: user
+        });
+    } catch(error) {
+        next(error);
+    }
+}
+
+module.exports = {getUsers, registerUser};
