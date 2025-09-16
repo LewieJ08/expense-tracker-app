@@ -3,9 +3,16 @@ import { useState } from "react";
 function Register() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [confirmPassword, setConfirmPassword] = useState("");
+    const [error, setError] = useState("")
 
     async function registerUser(e) {
         e.preventDefault();
+
+        if (confirmPassword !== password) {
+            setError("Passwords do not match")
+            return;
+        }
 
         try {
             const response = await fetch("/api/users", {
@@ -36,13 +43,20 @@ function Register() {
                     onChange={e => setUsername(e.target.value)}
                 />
                 <input 
-                    type="text"  
+                    type="password"  
                     placeholder="Password" 
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                 />
+                <input 
+                    type="password" 
+                    placeholder="Confirm Password"
+                    onChange={e => setConfirmPassword(e.target.value)}
+                />
                 <button type="submit">Register</button>
             </form>
+
+            {error && <p>{error}</p>}
         </div>
     )
 }
