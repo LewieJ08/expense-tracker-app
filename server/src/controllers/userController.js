@@ -1,5 +1,6 @@
 const User = require("../models/user");
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
+const crypto = require("crypto");
 
 const getUsers = async (req, res, next) => {
     try {
@@ -38,4 +39,31 @@ const registerUser = async (req, res, next) => {
     }
 }
 
-module.exports = {getUsers, registerUser};
+const loginUser = async (req, res, next) => {
+    try {
+        const {username, password} = req.body;
+        const user = await User.findOne({username: username});
+        const passwordMatch = await bcrypt.compare(password, user.password);
+
+        if (!passwordMatch || !user) {
+            return res.status(401).json({
+                success: false,
+                error: "Password or Username incorrect"
+            });
+        }
+
+        const token = crypto.randomBytes(32).toString("hex");
+        await User.updateOne({username: username}, {token: token});
+        user.token = token;
+
+        res.status(200).json({
+            success: true,
+            message: `User: ${username} successfully logged in`,
+            data: user
+        });
+    } catch(error) {
+        next(error);
+    }
+}
+
+module.exports = {getUsers, registerUser, loginUser};
