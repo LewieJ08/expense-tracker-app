@@ -18,9 +18,8 @@ function Login() {
                 throw new Error("Response Error");
             }
 
-            const data = await response.json();
-            console.log(data);
-
+            const user = await response.json();
+            localStorage.setItem("user", user);
 
         } catch(error) {
             throw error;
@@ -36,7 +35,7 @@ function Login() {
                     onChange={e => setUsername(e.target.value)}
                 />
                 <input 
-                    type="text" 
+                    type="password" 
                     placeholder="Password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
