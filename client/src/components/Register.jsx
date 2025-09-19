@@ -22,7 +22,7 @@ function Register() {
             });
 
             if (!response.ok) {
-                throw new Error("Error");
+                throw new Error("Response Error");
             } 
 
             const data = await response.json();
