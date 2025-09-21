@@ -21,6 +21,8 @@ function Login() {
             const user = await response.json();
             localStorage.setItem("user", user);
 
+            location.reload();
+
         } catch(error) {
             throw error;
         }
