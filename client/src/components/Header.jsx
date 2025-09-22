@@ -1,5 +1,11 @@
 function Header() {
-    const user = localStorage.getItem("user");
+    const storedUser = localStorage.getItem("user");
+    const user = storedUser ? JSON.parse(storedUser) : null;
+
+    function logoutUser() {
+        localStorage.clear();
+        location.reload();
+    }
 
     if (!user) {
         return (
@@ -18,7 +24,7 @@ function Header() {
             <h1>Expense Tracker</h1>
             <div className="headerButtons">
                 <p>{user.username}</p>
-                <button className="loginButton">Log Out</button>
+                <button onClick={logoutUser} className="loginButton">Log Out</button>
             </div>
         </div>
     )
