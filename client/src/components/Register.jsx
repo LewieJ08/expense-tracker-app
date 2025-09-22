@@ -4,7 +4,7 @@ function Register() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-    const [error, setError] = useState("")
+    const [error, setError] = useState("");
 
     async function registerUser(e) {
         e.preventDefault();
@@ -56,7 +56,7 @@ function Register() {
                 <button type="submit">Register</button>
             </form>
 
-            {error && <p>{error}</p>}
+            {error && <p style={"color: red"}>{error}</p>}
         </div>
     )
 }
