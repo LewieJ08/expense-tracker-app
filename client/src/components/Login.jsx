@@ -18,8 +18,8 @@ function Login() {
                 throw new Error("Response Error");
             }
 
-            const user = await response.json();
-            localStorage.setItem("user", user);
+            const resBody = await response.json();
+            localStorage.setItem("user", JSON.stringify(resBody.data));
 
             location.reload();
 
