@@ -1,3 +1,5 @@
+import userIcon from "../assets/userIcon.png"
+
 function Header() {
     const storedUser = localStorage.getItem("user");
     const user = storedUser ? JSON.parse(storedUser) : null;
@@ -12,19 +14,24 @@ function Header() {
             <div className="header">
                 <h1>Expense Tracker</h1>
                 <div className="headerButtons">
-                    <button className="loginButton">Register</button>
-                    <button className="loginButton">Log In</button>
+                    <button className="headerButton">Register</button>
+                    <button className="headerButton">Log In</button>
                 </div>
             </div>
         )
     }
 
+    // TODO add update user detail func
+    
     return (
         <div className="header">
             <h1>Expense Tracker</h1>
             <div className="headerButtons">
-                <p>{user.username}</p>
-                <button onClick={logoutUser} className="loginButton">Log Out</button>
+                <button onClick={logoutUser} className="headerButton">Log Out</button>
+                <button className="headerButton">
+                    <img src={userIcon}/>
+                    <p>{user.username}</p>
+                </button>
             </div>
         </div>
     )
