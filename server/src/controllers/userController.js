@@ -66,4 +66,19 @@ const loginUser = async (req, res, next) => {
     }
 }
 
-module.exports = {getUsers, registerUser, loginUser};
+const logoutUser = async (req, res, next) => {
+    try {
+        const token = (req.headers.authorization).split(" ")[1];
+        await User.updateOne({token: token}, {token: null});
+
+        res.status(200).json({
+            success: true,
+            message: `User: ${req.body.username} logged out successfully`
+        });
+    } catch(error) {
+        next(error);
+    }
+}
+
+
+module.exports = {getUsers, registerUser, loginUser, logoutUser};
