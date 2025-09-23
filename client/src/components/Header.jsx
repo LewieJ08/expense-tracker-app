@@ -21,17 +21,15 @@ function Header() {
         )
     }
 
-    // TODO add update user detail func
-    
     return (
         <div className="header">
             <h1>Expense Tracker</h1>
             <div className="headerButtons">
+                <div className="userInfo">
+                    <img src={userIcon} className="userIcon"/>
+                    <p id="headerUsername">{user.username}</p>
+                </div>
                 <button onClick={logoutUser} className="headerButton">Log Out</button>
-                <button className="headerButton">
-                    <img src={userIcon}/>
-                    <p>{user.username}</p>
-                </button>
             </div>
         </div>
     )
