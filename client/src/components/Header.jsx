@@ -4,9 +4,28 @@ function Header() {
     const storedUser = localStorage.getItem("user");
     const user = storedUser ? JSON.parse(storedUser) : null;
 
-    function logoutUser() {
+    async function logoutUser() {
         localStorage.clear();
         location.reload();
+
+        try {
+            const response = await fetch("/api/users/logout", {
+                method: "POST",
+                headers: { 
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${user.token}`
+                 },
+                body: JSON.stringify({username: user.username})  
+            })
+
+            if (!response.ok) {
+                throw new Error("Response error.")
+            }
+
+        } catch(error) {
+            console.log(error.stack)
+            throw error
+        }
     }
 
     if (!user) {
