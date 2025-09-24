@@ -15,7 +15,7 @@ function Login() {
             }); 
 
             if (!response.ok) {
-                throw new Error("Response Error");
+                throw new Error(`Response status: ${response.status}`);
             }
 
             const resBody = await response.json();
@@ -24,7 +24,7 @@ function Login() {
             location.reload();
 
         } catch(error) {
-            throw error;
+            console.log(error.message);
         }
     }
     return (
