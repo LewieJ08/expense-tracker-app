@@ -5,8 +5,6 @@ function Header() {
     const user = storedUser ? JSON.parse(storedUser) : null;
 
     async function logoutUser() {
-        localStorage.clear();
-        location.reload();
 
         try {
             const response = await fetch("/api/users/logout", {
@@ -14,18 +12,20 @@ function Header() {
                 headers: { 
                     "Content-Type": "application/json",
                     "Authorization": `Bearer ${user.token}`
-                 },
-                body: JSON.stringify({username: user.username})  
-            })
+                },
+                body: JSON.stringify({username: user.username})
+            });
 
             if (!response.ok) {
-                throw new Error("Response error.")
+                throw new Error(`Response status: ${response.status}`)
             }
 
         } catch(error) {
-            console.log(error.stack)
-            throw error
+            console.log(error.message);
         }
+
+        localStorage.clear();
+        location.reload();
     }
 
     if (!user) {
