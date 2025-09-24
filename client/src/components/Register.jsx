@@ -22,14 +22,14 @@ function Register() {
             });
 
             if (!response.ok) {
-                throw new Error("Response Error");
+                throw new Error(`Response status: ${response.status}`);
             } 
 
             const data = await response.json();
             console.log("Registered:", data);
 
         } catch(error) {
-            throw error;
+            console.log(error.message);
         }
     } 
 
