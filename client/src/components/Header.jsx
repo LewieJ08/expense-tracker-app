@@ -34,8 +34,12 @@ function Header() {
             <div className="header">
                 <h1>Expense Tracker</h1>
                 <div className="headerButtons">
-                    <Link to="/register"><button className="headerButton">Register</button></Link>
-                    <Link to="/login"><button className="headerButton">Log In</button></Link>
+                    <Link to="/register">
+                        <button className="headerButton">Register</button>
+                    </Link>
+                    <Link to="/login">
+                        <button className="headerButton">Log In</button>
+                    </Link>
                 </div>
             </div>
         )
