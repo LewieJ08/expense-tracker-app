@@ -38,7 +38,8 @@ function Register() {
     } 
 
     return (
-        <div className="registerForm">
+        <div className="loginForm">
+            <h2>Register</h2>
             <form onSubmit={registerUser}>
                 <input 
                     type="text" 
@@ -46,18 +47,21 @@ function Register() {
                     value={username}
                     onChange={e => setUsername(e.target.value)}
                 />
+                <br />
                 <input 
                     type="password"  
                     placeholder="Password" 
                     value={password}
                     onChange={e => setPassword(e.target.value)}
-                />
+                /> 
+                <br />
                 <input 
                     type="password" 
                     placeholder="Confirm Password"
                     onChange={e => setConfirmPassword(e.target.value)}
                 />
-                <button type="submit">Register</button>
+                <br />
+                <button className="formButton" type="submit">Register</button>
             </form>
 
             {error && <p style={"color: red"}>{error}</p>}
