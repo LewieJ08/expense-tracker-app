@@ -16,8 +16,11 @@ const getUsers = async (req, res, next) => {
 }
 
 const registerUser = async (req, res, next) => {
+    let username, password;
+
     try {
-        const {username, password} = req.body;
+        username = req.body.username;
+        password = req.body.password;
         const hashedPassword = await bcrypt.hash(password, 10);
 
         const user = new User({username: username, password: hashedPassword});
@@ -31,7 +34,7 @@ const registerUser = async (req, res, next) => {
         if (error.code === 11000) {
             res.status(400).json({
                 success: false,
-                error: `User with username: '${username}' already exists`
+                error: `User with username ${username} already already exists`
             });
         } else {
             next(error);
