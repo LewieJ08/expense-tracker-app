@@ -24,7 +24,13 @@ function Register() {
             });
 
             if (!response.ok) {
-                throw new Error(`Response status: ${response.status}`);
+                if (response.status === 400) {
+                    const resBody = await response.json();
+                    setError(resBody.error);
+                    return;
+                } else {
+                    throw new Error(`Response status: ${response.status}`);
+                }
             } 
 
             const data = await response.json();
@@ -34,6 +40,7 @@ function Register() {
 
         } catch(error) {
             console.log(error.message);
+            throw error;
         }
     } 
 
@@ -64,7 +71,7 @@ function Register() {
                 <button className="formButton" type="submit">Register</button>
             </form>
 
-            {error && <p style={"color: red"}>{error}</p>}
+            {error && <p style={{color: "red"}}>{error}</p>}
         </div>
     )
 }
