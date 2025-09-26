@@ -1,8 +1,10 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function Login() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const navigate = useNavigate();
 
     async function loginUser(e) {
         e.preventDefault();
@@ -21,7 +23,7 @@ function Login() {
             const resBody = await response.json();
             localStorage.setItem("user", JSON.stringify(resBody.data));
 
-            location.reload();
+            navigate("/");
 
         } catch(error) {
             console.log(error.message);
