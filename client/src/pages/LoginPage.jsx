@@ -31,6 +31,7 @@ function Login() {
     }
     return (
         <div className="loginForm">
+            <h2>Log In</h2>
             <form onSubmit={loginUser}>
                 <input 
                     type="text" 
@@ -38,13 +39,15 @@ function Login() {
                     value={username}
                     onChange={e => setUsername(e.target.value)}
                 />
+                <br />
                 <input 
                     type="password" 
                     placeholder="Password"
                     value={password}
                     onChange={e => setPassword(e.target.value)}
                 />
-                <button type="submit">Log In</button>
+                <br />
+                <button className="formButton" type="submit">Log In</button>
             </form>
         </div>
     )
