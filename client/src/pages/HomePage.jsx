@@ -5,7 +5,16 @@ function Home() {
     const user = storedUser ? JSON.parse(storedUser) : null;
     
     return (
-        <Header user={user}/>
+        <div>
+            <Header user={user}/>
+            <main>
+                {!user && 
+                    <h3 className="notLoggedInText">
+                        <b>Create an account</b> or <b>Log In</b> to start tracking expenses
+                    </h3>
+                }
+            </main>
+        </div>
     )
 }
 
