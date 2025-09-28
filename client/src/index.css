@@ -94,3 +94,16 @@ input {
   text-align: center;
   width: 300px;
 }
+
+/* OTHER styles */
+
+.notLoggedInText {
+  font-size: 1.3em;
+  box-shadow: 5px 5px 10px black;
+  background-color: #444;
+  margin: auto;
+  margin-top: 200px;
+  padding: 20px;
+  text-align: center;
+  max-width: fit-content;
+}
