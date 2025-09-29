@@ -1,4 +1,5 @@
 import Header from "../components/Header"
+import ExpenseForm from "../components/ExpenseForm";
 
 function Home() {
     const storedUser = localStorage.getItem("user");
@@ -12,6 +13,9 @@ function Home() {
                     <h3 className="notLoggedInText">
                         <b>Create an account</b> or <b>Log In</b> to start tracking expenses
                     </h3>
+                }
+                {user && 
+                   <ExpenseForm /> 
                 }
             </main>
         </div>
