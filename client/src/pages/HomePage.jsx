@@ -7,7 +7,7 @@ function Home() {
     
     return (
         <div>
-            <Header user={user}/>
+            <Header user={user} />
             <main>
                 {!user && 
                     <h3 className="notLoggedInText">
@@ -15,7 +15,7 @@ function Home() {
                     </h3>
                 }
                 {user && 
-                   <ExpenseForm /> 
+                   <ExpenseForm user={user} /> 
                 }
             </main>
         </div>
