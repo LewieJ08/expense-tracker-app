@@ -4,6 +4,7 @@ const cors = require("cors");
 const mwLogger = require("./middleware/logger");
 const mwErrorhandler = require("./middleware/errorHandler");
 const userRoutes = require("./routes/userRoutes");
+const expenseRoutes = require("./routes/expenseRoutes");
 
 require("dotenv").config();
 const app = express();
@@ -18,6 +19,7 @@ app.use(express.json());
 app.use(cors(corsOptions));
 app.use(mwLogger);
 app.use("/api/users", userRoutes);
+app.use("/api/expenses", expenseRoutes);
 
 app.use(mwErrorhandler);
 
