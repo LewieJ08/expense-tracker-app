@@ -9,6 +9,7 @@ const expenseSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
+        unique: true
     },
     cost: {
         type: Number,
