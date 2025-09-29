@@ -16,12 +16,17 @@ const getUsers = async (req, res, next) => {
 }
 
 const registerUser = async (req, res, next) => {
-    const {username, password} = req.body;
+    const {username, password, currency} = req.body;
     
     try {
         const hashedPassword = await bcrypt.hash(password, 10);
 
-        const user = new User({username: username, password: hashedPassword});
+        const user = new User({
+            username: username,
+            password: hashedPassword,
+            currency: currency
+        });
+        
         await user.save();
         res.status(201).json({
             success: true,
