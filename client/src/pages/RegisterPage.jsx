@@ -5,6 +5,7 @@ function Register() {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [currency, setCurrency] = useState("GBP");
     const [error, setError] = useState("");
     const navigate = useNavigate();
 
@@ -20,7 +21,11 @@ function Register() {
             const response = await fetch("/api/users/register", {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({username: username, password: password})
+                body: JSON.stringify({
+                    username: username, 
+                    password: password,
+                    currency: currency
+                })
             });
 
             if (!response.ok) {
@@ -69,6 +74,18 @@ function Register() {
                     required
                 />
                 <br />
+                <p>Please select your preferred currency from the drop down below.</p>
+                <select 
+                    placeholder="Currency" id="formSelect"
+                    onChange={e => setCurrency(e.target.value)}
+                >
+                    <option value="GBP">GBP (£)</option>
+                    <option value="USD">USD ($)</option>
+                    <option value="EUR">EUR (€)</option>
+                    <option value="JPY">JPY (¥)</option>
+                </select>
+                <br />
+            
                 <button className="formButton" type="submit">Register</button>
             </form>
 
