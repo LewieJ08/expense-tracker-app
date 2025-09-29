@@ -9,9 +9,9 @@ function Header(props) {
                 method: "POST",
                 headers: { 
                     "Content-Type": "application/json",
-                    "Authorization": `Bearer ${user.token}`
+                    "Authorization": `Bearer ${props.user.token}`
                 },
-                body: JSON.stringify({username: user.username})
+                body: JSON.stringify({username: props.user.username})
             });
 
             if (!response.ok) {
