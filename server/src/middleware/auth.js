@@ -10,7 +10,7 @@ module.exports = async (req, res, next) => {
         } 
 
         const token = (req.headers.authorization).split(" ")[1];
-        const user = User.findOne({token: token});
+        const user = await User.findOne({token: token});
 
         if (!user) {
             return res.status(401).json({
