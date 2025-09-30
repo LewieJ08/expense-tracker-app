@@ -6,6 +6,10 @@ html, body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+:root {
+  overscroll-behavior: none;
+}
+
 /* header styles */
 
 .header {
@@ -72,6 +76,27 @@ html, body {
 .userInfo p {
   margin: 0;
   font-size: 14px;
+}
+
+/* main elem styles */
+
+main {
+  display: flex; 
+  align-items: stretch;
+} 
+
+.leftSection {
+  width: 70%;
+  float: left;
+}
+
+.rightSection {
+  width: 30%;
+  float: right;
+  border: solid 1px black; 
+  border-top-style: hidden;
+  border-bottom-style: hidden;
+  height: 86vh;
 }
 
 /* form styling */
