@@ -9,7 +9,6 @@ const expenseSchema = new mongoose.Schema({
     title: {
         type: String,
         required: true,
-        unique: true
     },
     cost: {
         type: Number,
@@ -28,5 +27,7 @@ const expenseSchema = new mongoose.Schema({
         type: Date
     }
 });
+
+expenseSchema.index({_userId: 1, title: 1}, {unique: true});
 
 module.exports = new mongoose.model("Expense", expenseSchema);
