@@ -5,7 +5,7 @@ const getExpenses = async (req, res, next) => {
         const expenses = await Expense.find({_userId: req.user.user_id});
         res.status(200).json({
             success: true,
-            message: "success placeholder message",
+            message: `Expenses for ${req.user.username} fetched successfully`,
             data: expenses
         });
     } catch(error) {
