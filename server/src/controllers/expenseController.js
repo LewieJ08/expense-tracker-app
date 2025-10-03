@@ -3,7 +3,7 @@ const Expense = require("../models/Expense");
 const getExpenses = async (req, res, next) => {
     try {
         const expenses = await Expense.find({_userId: req.user._id});
-        console.log(expenses)
+                  
         res.status(200).json({
             success: true,
             message: `Expenses for ${req.user.username} fetched successfully`,
