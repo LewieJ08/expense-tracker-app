@@ -57,7 +57,8 @@ function Home() {
                 <div className="leftSection">
                     {expenses.map(expense => {
                         return (
-                           <ExpenseCard
+                            <ExpenseCard
+                                key={expense._id}
                                 title={expense.title}
                                 cost={expense.cost}
                                 category={expense.category}
