@@ -58,8 +58,9 @@ function Home() {
                     {expenses.map(expense => {
                         return (
                             <ExpenseCard
-                                user={user}
                                 key={expense._id}
+                                user={user}
+                                id={expense._id}
                                 title={expense.title}
                                 cost={expense.cost}
                                 category={expense.category}
