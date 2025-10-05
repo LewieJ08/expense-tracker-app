@@ -90,6 +90,15 @@ main {
   float: left;
 }
 
+.expenseCard {
+  background-color: #444;
+  border-radius: 5%;
+  width: 200px;
+  margin: 20px;
+  padding: 10px;
+  display: inline-block;
+}
+
 .rightSection {
   width: 30%;
   float: right;
