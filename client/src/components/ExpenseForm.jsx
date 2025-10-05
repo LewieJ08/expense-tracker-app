@@ -3,7 +3,7 @@ import { useState } from "react"
 function ExpenseForm(props) {
     const [title, setTitle] = useState("");
     const [cost, setCost] = useState("");
-    const [category, setCategory] = useState("groceries");
+    const [category, setCategory] = useState("Groceries");
     const [error, setError] = useState("");
     
     async function createExpense(e) {
@@ -65,13 +65,13 @@ function ExpenseForm(props) {
                 <select
                     onChange={e => setCategory(e.target.value)}
                 >
-                    <option value="groceries">Groceries</option>
-                    <option value="leisure">Leisure</option>
-                    <option value="electronics">Electronics</option>
-                    <option value="utilities">Utilities</option>
-                    <option value="clothing">Clothing</option>
-                    <option value="health">Health</option>
-                    <option value="other">Other</option>
+                    <option value="Groceries">Groceries</option>
+                    <option value="Leisure">Leisure</option>
+                    <option value="Electronics">Electronics</option>
+                    <option value="Utilities">Utilities</option>
+                    <option value="Clothing">Clothing</option>
+                    <option value="Health">Health</option>
+                    <option value="Other">Other</option>
                 </select>
                 <br />
                 <button className="formButton" type="submit">Create Expense</button>
