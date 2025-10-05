@@ -7,6 +7,9 @@ router.use(mwAuth);
 
 router.route("/")
     .get(expenseController.getExpenses)
-    .post(expenseController.createExpense)
+    .post(expenseController.createExpense);
+
+router.route("/:id")
+    .delete(expenseController.deleteExpense);
 
 module.exports = router;
