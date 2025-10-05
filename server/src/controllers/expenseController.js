@@ -1,3 +1,4 @@
+const { Query } = require("mongoose");
 const Expense = require("../models/Expense");
 
 const getExpenses = async (req, res, next) => {
@@ -41,4 +42,16 @@ const createExpense = async (req, res, next) => {
     }
 }
 
-module.exports = {getExpenses, createExpense};
+const deleteExpense = async (req, res, next) => {
+    try {
+        await Expense.findByIdAndDelete(req.params.id);
+        res.status(200).json({
+            success: true,
+            message: "Expense deleted successfully"
+        });
+    } catch(error) {
+        next(error);
+    }
+}
+
+module.exports = {getExpenses, createExpense, deleteExpense};
