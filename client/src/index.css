@@ -53,7 +53,7 @@ html, body {
   gap: 12px; 
 }
 
-.headerButton, .formButton {
+button {
   background: transparent;         
   border: 1px solid #666;          
   border-radius: 6px;          
@@ -157,4 +157,9 @@ select {
   padding: 20px;
   text-align: center;
   max-width: fit-content;
+}
+
+.pageNotfound {
+  text-align: center;
+  margin-top: 100px;
 }
