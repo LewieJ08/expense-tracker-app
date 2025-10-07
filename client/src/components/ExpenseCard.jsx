@@ -40,6 +40,7 @@ function ExpenseCard(props) {
             <p>{currency}{props.cost}</p>
             <p>{props.category}</p>
             <button onClick={deleteExpense}>Delete</button>
+            <button>Update</button>
         </div>
     )
 }
