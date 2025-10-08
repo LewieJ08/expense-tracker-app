@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 const currencySymbols = {
     "GBP": "£",
@@ -40,7 +41,9 @@ function ExpenseCard(props) {
             <p>{currency}{props.cost}</p>
             <p>{props.category}</p>
             <button onClick={deleteExpense}>Delete</button>
-            <button>Update</button>
+            <Link>
+                <button>Update</button>
+            </Link>
         </div>
     )
 }
